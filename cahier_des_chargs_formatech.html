@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cahier des charges - Plateforme de gestion des élèves</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+        .content {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #333;
+            font-size: 1.5rem;
+            margin-top: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+        ul li {
+            margin-bottom: 10px;
+        }
+        .section {
+            margin-top: 30px;
+        }
+        .section-title {
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        .section-content {
+            margin-top: 10px;
+        }
+        code {
+            background-color: #f0f0f0;
+            padding: 5px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Cahier des charges - Plateforme de gestion des élèves</h1>
+</header>
+
+<div class="content">
+    <section class="section">
+        <h2>1. Introduction</h2>
+        <p>Le projet consiste à développer une <strong>plateforme de gestion des élèves</strong> pour <strong>Formatech</strong>, une société de formation en France, afin de gérer ses différents centres de formation, les sessions de formation, ainsi que le suivi des élèves et des formateurs. Cette plateforme doit permettre à différents utilisateurs de gérer les informations liées aux formations, aux élèves et aux formateurs de manière fluide et sécurisée.</p>
+    </section>
+
+    <section class="section">
+        <h2>2. Objectifs du projet</h2>
+        <ul>
+            <li><strong>Créer une interface utilisateur</strong> permettant de gérer les centres de formation, les sessions de formation, les élèves et les formateurs.</li>
+            <li><strong>Assurer un suivi des évaluations</strong> et des appréciations des élèves par les formateurs.</li>
+            <li><strong>Garantir la sécurité et la confidentialité</strong> des informations personnelles et des résultats des élèves.</li>
+            <li><strong>Proposer une interface conviviale</strong> et facile à utiliser pour les différents types d’utilisateurs (super admin, admin, formateur, élève).</li>
+        </ul>
+    </section>
+
+    <section class="section">
+        <h2>3. Périmètre du projet</h2>
+        <div class="section-content">
+            <h3 class="section-title">Fonctionnalités principales</h3>
+            <ul>
+                <li><strong>Gestion des établissements</strong>
+                    <ul>
+                        <li>Créer, modifier, supprimer des établissements de formation (nom, adresse, contact, etc.).</li>
+                        <li>Gérer les comptes super admin et admin pour chaque établissement.</li>
+                    </ul>
+                </li>
+                <li><strong>Gestion des sessions de formation</strong>
+                    <ul>
+                        <li>Créer, modifier, supprimer des sessions de formation (nom, type, dates de début et de fin, description).</li>
+                        <li>Associer des sessions à des établissements et à des modules spécifiques (PHP, JavaScript, etc.).</li>
+                    </ul>
+                </li>
+                <li><strong>Gestion des élèves</strong>
+                    <ul>
+                        <li>Créer, modifier, supprimer des comptes élèves (informations personnelles, contact, etc.).</li>
+                        <li>Associer des élèves à des sessions spécifiques.</li>
+                    </ul>
+                </li>
+                <li><strong>Gestion des formateurs</strong>
+                    <ul>
+                        <li>Créer, modifier, supprimer des comptes formateurs.</li>
+                        <li>Associer des formateurs à des modules de formation dans une session donnée.</li>
+                    </ul>
+                </li>
+                <li><strong>Suivi des notes et appréciations</strong>
+                    <ul>
+                        <li>Les formateurs peuvent noter et ajouter des commentaires pour chaque élève par module.</li>
+                        <li>Les élèves peuvent consulter leurs résultats et commentaires.</li>
+                    </ul>
+                </li>
+                <li><strong>Gestion des rôles utilisateurs</strong>
+                    <ul>
+                        <li><strong>Super Admin</strong>: Accès total à toutes les fonctionnalités.</li>
+                        <li><strong>Admin</strong>: Accès limité à la gestion des sessions, des élèves, des formateurs et des modules pour un ou plusieurs établissements.</li>
+                        <li><strong>Formateur</strong>: Accès limité à la consultation des sessions/modules et à l’évaluation des élèves.</li>
+                        <li><strong>Élève</strong>: Consultation de ses modules et de ses résultats.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>4. Technologies</h2>
+        <ul>
+            <li><strong>Base de données</strong>: <code>MySQL</code></li>
+            <li><strong>Back-end</strong>: <code>PHP</code> avec architecture MVC</li>
+            <li><strong>Front-end</strong>: <code>HTML5</code>, <code>CSS3</code>, <code>JavaScript</code></li>
+            <li><strong>Sécurité</strong>: Authentification sécurisée, gestion des sessions, et protection contre les injections SQL.</li>
+        </ul>
+    </section>
+
+    <section class="section">
+        <h2>5. Conception de la base de données</h2>
+        <p>Les principales tables seront :</p>
+        <ul>
+            <li><strong>Institution</strong>: 
+                id,
+                nom,
+                adresse,
+                telephone,
+                courriel
+            </li>
+            <li><strong>Institution_Session</strong>: 
+                id,
+                session_id,
+                institution_id
+                
+            </li>
+            <li><strong>Module</strong>: 
+                id,
+                nom,
+                description
+            </li>
+            <li><strong>Session</strong>: 
+                id,
+                nom,
+                type,
+                date_debut,
+                date_fin,
+                description
+            </li>
+            <li><strong>Session_Module</strong>: 
+                id,
+                session_id,
+                module_id,
+                institution_id
+            </li>
+            <li><strong>Utilisateur</strong>: 
+                id,
+                prenom,
+                nom,
+                courriel,
+                motdepasse,
+                roles,
+                commentaire,
+                note,
+                telephone,
+                date_naissance
+            </li>
+            <li><strong>Utilisateur_institution_session_module</strong>: 
+                id,
+                session_module_id,
+                utilisateur_id,
+                commentaire_module,
+                note_module
+            </li>
+        </ul>
+    </section>
+
+    <section class="section">
+        <h2>6. Interface utilisateur</h2>
+        <ul>
+            <li><strong>Super Admin</strong>: Gestion des établissements et des utilisateurs (tout le monde), tableau de bord complet.</li>
+            <li><strong>Admin</strong>: Gestion des sessions et des utilisateurs (eleve, enseignant) et gestion des rattachement des utilisateurs à des sessions et des modules.</li>
+            <li><strong>Formateur</strong>: Consultation des modules, des eleves et de leurs note et commentaires, Gestion des notes et commntaire des élèves.</li>
+            <li><strong>Élève</strong>: Consultation des modules et résultats obtenus.</li>
+        </ul>
+    </section>
+
+
+</div>
+
+</body>
+</html>
